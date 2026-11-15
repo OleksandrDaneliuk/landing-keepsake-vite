@@ -5,7 +5,7 @@
       article.journal-card
         .journal-card__thumb
           //- decorative image -> empty alt
-          +picture(entry.image, '', { widths: [150, 300], sizes: '150px', width: 150, height: 150 })
+          +picture(entry.image, '', { widths: [150, 300], sizes: '(min-width: 768px) 150px, 96px', width: 300, height: 300 })
         .journal-card__content
           p.journal-card__meta
             time(datetime=entry.iso) #{entry.date}

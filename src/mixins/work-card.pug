@@ -3,7 +3,7 @@
 mixin work-card(work)
   - const category = categories.find(c => c.id === work.category)
   article.work-card(tabindex="0")&attributes(attributes)
-    +picture(work.image, work.alt, { widths: [358, 716], sizes: '(min-width: 64rem) 358px, 100vw', width: 358, height: 282, eager: work.eager })(class="work-card__img")
+    +picture(work.image, work.alt, { widths: [400, 800], sizes: '(min-width: 1280px) 357px, (min-width: 768px) 50vw, 100vw', width: 800, height: 632, eager: work.eager })(class="work-card__img")
     .work-card__overlay
       span.work-card__plus
         +icon('plus')

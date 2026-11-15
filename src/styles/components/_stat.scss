@@ -6,7 +6,9 @@
 
   &__number {
     margin-bottom: 6px;
+
     @include oswald(38, rem(56), null, 300, false);
+
     color: var(--color-text-dark);
 
     @include mq(md) {
@@ -22,6 +24,7 @@
 
   &__label {
     @include oswald(12, rem(18), 1.5px);
+
     color: var(--color-muted);
   }
 }

@@ -37,11 +37,13 @@
 
   &__meta {
     @include oswald(12, rem(18), 1px);
+
     color: var(--color-muted);
   }
 
   &__title {
     @include oswald(15, rem(21), 1.5px);
+
     color: var(--color-text-dark);
 
     @include mq(md) {

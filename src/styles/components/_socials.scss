@@ -16,6 +16,7 @@ $networks: ('rss', 'facebook', 'twitter', 'dribbble', 'pinterest');
 
   &__link {
     @include flex-center;
+
     width: rem(34);
     height: rem(34);
     border-radius: 50%;

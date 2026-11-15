@@ -7,7 +7,9 @@
     display: flex;
     align-items: center;
     gap: space('sm');
+
     @include oswald(18, rem(27), 1.5px);
+
     color: var(--color-text-dark);
 
     &::after {

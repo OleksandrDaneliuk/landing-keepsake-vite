@@ -1,15 +1,21 @@
 //- src/mixins/work-card.pug
 //- +work-card(work)   work: { title, category, image, alt, eager?, client? }
 mixin work-card(work)
-  - const category = categories.find(c => c.id === work.category)
+  - const category = categories.find((c) => c.id === work.category);
   article.work-card(tabindex="0")&attributes(attributes)
-    +picture(work.image, work.alt, { widths: [400, 800], sizes: '(min-width: 1280px) 357px, (min-width: 768px) 50vw, 100vw', width: 800, height: 632, eager: work.eager })(class="work-card__img")
+    +picture(work.image, work.alt, {
+      widths: [400, 800],
+      sizes: "(min-width: 1280px) 357px, (min-width: 768px) 50vw, 100vw",
+      width: 800,
+      height: 632,
+      eager: work.eager,
+    }).work-card__img
     .work-card__overlay
       span.work-card__plus
-        +icon('plus')
-      h3.work-card__title #{work.title}
+        +icon("plus")
+      h3.work-card__title #{ work.title }
       .work-card__divider
-      span.work-card__cat #{category ? category.label : work.category}
+      span.work-card__cat #{ category ? category.label : work.category }
       //- optional field
       if work.client
-        span.work-card__client #{work.client}
+        span.work-card__client #{ work.client }

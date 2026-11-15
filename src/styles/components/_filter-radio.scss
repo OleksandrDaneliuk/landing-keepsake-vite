@@ -25,7 +25,9 @@
 
     // hide the cards of the other categories
     @if $category != 'all' {
-      &[id='filter-#{$category}']:checked ~ .works-grid .works-grid__item:not([data-category='#{$category}']) {
+      &[id='filter-#{$category}']:checked
+        ~ .works-grid
+        .works-grid__item:not([data-category='#{$category}']) {
         display: none;
       }
     }

@@ -4,4 +4,4 @@ mixin socials(items)
   ul.socials&attributes(attributes)
     each social in items
       li.socials__item
-        a.socials__link(class=`socials__link--${social.id}` href=social.href aria-label=social.label) #{social.short}
+        a.socials__link(class=`socials__link--${social.id}` href=social.href aria-label=social.label) #{ social.short }

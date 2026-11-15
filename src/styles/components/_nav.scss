@@ -3,10 +3,7 @@
 // Mobile: full-screen dropdown (opened by .menu-toggle:checked ~ .nav)
 .nav {
   position: fixed;
-  top: var(--header-height);
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: var(--header-height) 0 0 0;
   display: none;
   flex-direction: column;
   justify-content: space-between;
@@ -55,7 +52,9 @@
   &__link {
     display: block;
     padding: space('md') 0;
+
     @include oswald(24, 1.25, 2px, 300);
+
     color: var(--color-text-dark);
 
     &:hover,
@@ -104,6 +103,7 @@
 
   &__info-label {
     @include oswald(12, null, 1.5px);
+
     color: var(--color-muted);
   }
 

@@ -2,31 +2,35 @@
 header.header
   .container.header__container
     a.logo(href="#top" aria-label=`${site.name} - home`)
-      span.logo__mark(aria-hidden="true") #{site.name[0]}
-      span.logo__text(aria-hidden="true") #{site.name.slice(1).toLowerCase()}
+      span.logo__mark(aria-hidden="true") #{ site.name[0] }
+      span.logo__text(aria-hidden="true") #{ site.name.slice(1).toLowerCase() }
 
     //- Mobile menu without JS: checkbox + label + sibling selector
     input#menu-toggle.menu-toggle(type="checkbox" aria-controls="main-nav")
     label.burger(for="menu-toggle")
       span.visually-hidden Menu
-      +icon('burger')(class="burger__icon burger__icon--open")
-      +icon('close')(class="burger__icon burger__icon--close")
+      +icon("burger").burger__icon.burger__icon--open
+      +icon("close").burger__icon.burger__icon--close
 
     nav#main-nav.nav(aria-label="Main")
       ul.nav__list
         each item, i in navItems
           li.nav__item
-            a.nav__link(class={ 'nav__link--active': item.active } href=item.href aria-current=item.active ? 'page' : false) #{item.label}
+            a.nav__link(
+              class={ "nav__link--active": item.active }
+              href=item.href
+              aria-current=item.active ? "page" : false
+            ) #{ item.label }
 
       .nav__actions
-        +btn('Contact us', '#contact', 'primary')(class="nav__cta")
+        +btn("Contact us", "#contact", "primary").nav__cta
         button.favourites(type="button" aria-label="Favourites")
-          +icon('heart')
+          +icon("heart")
           span.favourites__text Favourites
 
       .nav__info
         p.nav__info-label Get in touch
-        p.nav__info-text #{site.email}
-        p.nav__info-text #{site.phone}
+        p.nav__info-text #{ site.email }
+        p.nav__info-text #{ site.phone }
 
-      +socials(socials)(class="nav__socials")
+      +socials(socials).nav__socials

@@ -20,7 +20,9 @@
   &__overlay {
     position: absolute;
     inset: 0;
+
     @include flex-center(column);
+
     gap: rem(10);
     background-color: var(--color-overlay);
     opacity: 0;
@@ -35,6 +37,7 @@
 
   &__plus {
     @include flex-center;
+
     width: rem(44);
     height: rem(44);
     border-radius: 50%;
@@ -44,6 +47,7 @@
 
   &__title {
     @include oswald(17, rem(25), 1.5px);
+
     color: var(--color-white);
   }
 

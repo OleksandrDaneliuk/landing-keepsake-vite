@@ -2,6 +2,7 @@
 
 .burger {
   @include flex-center;
+
   width: rem(40);
   height: rem(40);
   color: var(--color-text-dark);

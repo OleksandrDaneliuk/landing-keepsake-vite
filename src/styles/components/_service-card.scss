@@ -2,10 +2,12 @@
 
 .service-card {
   @include flex-center(column);
+
   text-align: center;
 
   &__icon {
     @include flex-center;
+
     width: rem(72);
     height: rem(72);
     margin-bottom: rem(14);
@@ -21,7 +23,9 @@
 
   &__title {
     margin-bottom: rem(14);
+
     @include oswald(15, rem(22), 1.5px);
+
     color: var(--color-text-dark);
   }
 }

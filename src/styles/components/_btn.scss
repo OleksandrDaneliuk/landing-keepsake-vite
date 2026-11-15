@@ -2,9 +2,11 @@
 
 .btn {
   @include flex-center($inline: true);
+
   gap: space('xs');
   height: rem(40);
   padding: 0 rem(20);
+
   @include oswald(var(--fs-ui), rem(19), 1px);
 
   &--primary {

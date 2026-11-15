@@ -1,7 +1,7 @@
 //- src/components/sections/works.pug
 //- Filter: radios and chips come from the same array; `:checked ~ .works-grid`
 //- in CSS keeps working because the radios stay siblings of the grid.
-+section-block({ id: 'works', mod: 'works' })(aria-labelledby="works-title")
++section-block({ id: "works", mod: "works" })(aria-labelledby="works-title")
   each category, i in categories
     input.filter-radio(type="radio" name="portfolio-filter" id=`filter-${category.id}` checked=i === 0)
 
@@ -9,7 +9,7 @@
     h2#works-title.section__title Our awesome works
     .filter-chips
       each category in categories
-        label.chip(for=`filter-${category.id}`) #{category.label}
+        label.chip(for=`filter-${category.id}`) #{ category.label }
 
   ul.works-grid
     each work, i in works
@@ -17,4 +17,4 @@
         +work-card(work)
 
   .works__more
-    +btn('Load more works', null, 'secondary')(class="works__load-more")
+    +btn("Load more works", null, "secondary").works__load-more

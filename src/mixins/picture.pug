@@ -3,17 +3,24 @@
 //- Expects files:  /src/assets/images/<name>-<width>.avif | .webp | .jpg
 //- opts: { widths, sizes, width, height, eager }
 //- &attributes (class, etc.) go onto the <img>.
-mixin picture(name, alt = '', opts = {})
-  - const { widths = [400, 800], sizes = '100vw', width, height, eager = false, fallback = 'jpg' } = opts
-  - const base = '/src/assets/images/' + name
+mixin picture(name, alt = "", opts = {})
+  - const { widths = [400, 800], sizes = "100vw", width, height, eager = false, fallback = "jpg" } = opts;
+  - const base = "/src/assets/images/" + name;
   - const formats = [{ ext: 'avif', type: 'image/avif' }, { ext: 'webp', type: 'image/webp' }]
-  - const srcset = ext => widths.map(w => `${base}-${w}.${ext} ${w}w`).join(', ')
-  - const imgAttrs = { decoding: 'async' }
+  - const srcset = (ext) => widths.map((w) => `${base}-${w}.${ext} ${w}w`).join(", ");
+  - const imgAttrs = { decoding: "async" };
   unless eager
-    - imgAttrs.loading = 'lazy'
+    - imgAttrs.loading = "lazy";
   if eager
-    - imgAttrs.fetchpriority = 'high'
+    - imgAttrs.fetchpriority = "high";
   picture
     each format in formats
       source(type=format.type srcset=srcset(format.ext) sizes=sizes)
-    img(src=`${base}-${widths[widths.length - 1]}.${fallback}` srcset=srcset(fallback) sizes=sizes alt=alt width=width height=height)&attributes(Object.assign(imgAttrs, attributes))
+    img(
+      src=`${base}-${widths[widths.length - 1]}.${fallback}`
+      srcset=srcset(fallback)
+      sizes=sizes
+      alt=alt
+      width=width
+      height=height
+    )&attributes(Object.assign(imgAttrs, attributes))

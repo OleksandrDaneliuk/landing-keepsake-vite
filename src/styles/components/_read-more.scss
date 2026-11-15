@@ -5,7 +5,9 @@
   align-items: center;
   align-self: flex-start;
   gap: 6px;
+
   @include oswald(12, rem(18), 1.5px);
+
   color: var(--color-accent);
 
   &:hover {

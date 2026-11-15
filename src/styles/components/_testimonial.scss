@@ -50,16 +50,19 @@
 
   &__avatar {
     @include flex-center;
+
     width: rem(48);
     height: rem(48);
     border-radius: 50%;
     background-color: var(--color-teal);
     color: var(--color-white);
+
     @include oswald(17, null, null, 400, false);
   }
 
   &__name {
     @include oswald(14, rem(21), 1.5px);
+
     color: var(--color-text-dark);
   }
 

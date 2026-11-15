@@ -25,6 +25,7 @@
 
   &__heading {
     @include oswald(14, rem(21), 1.5px);
+
     color: var(--color-white);
   }
 
@@ -60,7 +61,6 @@
     flex-direction: column;
     gap: space('sm');
     margin-top: space('sm');
-
   }
 
   &__link {

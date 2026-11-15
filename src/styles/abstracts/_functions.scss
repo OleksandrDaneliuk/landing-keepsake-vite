@@ -11,7 +11,7 @@
 @function space($key) {
   $value: map.get(tokens.$spacing, $key);
 
-  @if $value == null {
+  @if not $value {
     @error 'Unknown spacing key `#{$key}`. Use one of: #{map.keys(tokens.$spacing)}.';
   }
 

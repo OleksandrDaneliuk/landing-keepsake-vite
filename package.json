@@ -10,10 +10,10 @@
   },
   "devDependencies": {
     "vite": "^6.4.6",
-    "vituum": "^1.2.0"
+    "vituum": "^1.2.0",
+    "sass": "^1"
   },
   "dependencies": {
-    "@vituum/vite-plugin-pug": "^1.1.0",
-    "sass": "^1"
+    "@vituum/vite-plugin-pug": "^1.1.0"
   }
-}
+} 

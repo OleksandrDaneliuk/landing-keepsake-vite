@@ -25,7 +25,7 @@ footer#contact.footer
             ul.footer__list(aria-labelledby=`footer-col-${i}`)
               each link in column.links
                 li
-                  a(href=link.href) #{link.label}
+                  a.footer__link(href=link.href) #{link.label}
 
     hr.footer__divider
 

@@ -1,0 +1,20 @@
+@use '../abstracts' as *;
+
+.works-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: space('sm');
+
+  @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq(lg) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(14);
+  }
+
+  &__item {
+    min-width: 0;
+  }
+}

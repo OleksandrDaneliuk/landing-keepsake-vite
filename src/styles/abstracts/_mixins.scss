@@ -1,0 +1,59 @@
+@use 'sass:math';
+@use 'sass:meta';
+@use 'functions' as *;
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@mixin focus-ring($color: var(--color-teal), $offset: 2px) {
+  outline: 2px solid $color;
+  outline-offset: $offset;
+}
+
+@mixin flex-center($direction: row, $inline: false) {
+  display: if($inline, inline-flex, flex);
+  align-items: center;
+  justify-content: center;
+
+  @if $direction != row {
+    flex-direction: $direction;
+  }
+}
+
+@mixin button-reset {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+// Oswald text style. A unitless $size is converted to rem; pass null to skip
+// $line-height / $letter-spacing.
+@mixin oswald($size, $line-height: null, $letter-spacing: 1px, $weight: 400, $uppercase: true) {
+  font-family: var(--font-oswald);
+  font-weight: $weight;
+  font-size: if(meta.type-of($size) == 'number' and math.is-unitless($size), rem($size), $size);
+
+  @if $line-height {
+    line-height: $line-height;
+  }
+
+  @if $letter-spacing {
+    letter-spacing: $letter-spacing;
+  }
+
+  @if $uppercase {
+    text-transform: uppercase;
+  }
+}

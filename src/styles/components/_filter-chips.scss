@@ -1,0 +1,16 @@
+@use '../abstracts' as *;
+
+.filter-chips {
+  display: flex;
+  gap: space('xs');
+  margin-right: calc(var(--container-padding) * -1);
+  padding-right: var(--container-padding);
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  @include mq(md) {
+    margin-right: 0;
+    padding-right: 0;
+    overflow: visible;
+  }
+}

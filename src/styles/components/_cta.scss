@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+.cta {
+  &__container {
+    @include flex-center(column);
+    gap: rem(20);
+    text-align: center;
+  }
+
+  &__title {
+    @include oswald(22, rem(30), 3px, 300);
+    color: var(--color-text-dark);
+
+    @include mq(md) {
+      font-size: rem(24);
+      line-height: rem(32);
+    }
+
+    @include mq(lg) {
+      font-size: rem(28);
+      line-height: rem(36);
+    }
+  }
+}

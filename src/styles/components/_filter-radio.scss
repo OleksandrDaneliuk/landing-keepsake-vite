@@ -1,0 +1,52 @@
+@use '../abstracts' as *;
+
+// CSS-only portfolio filter. The radios are generated in Pug from the
+// categories array and are siblings of .works__head and .works-grid, so
+// `:checked ~` can reach both the chips and the cards.
+// Attribute selectors on `id` are used instead of `#id` selectors.
+.filter-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+
+  @each $category in $work-categories {
+    // active / focused chip
+    &[id='filter-#{$category}']:checked ~ .works__head .chip[for='filter-#{$category}'] {
+      border-color: var(--color-accent);
+      background-color: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    &[id='filter-#{$category}']:focus-visible ~ .works__head .chip[for='filter-#{$category}'] {
+      @include focus-ring;
+    }
+
+    // hide the cards of the other categories
+    @if $category != 'all' {
+      &[id='filter-#{$category}']:checked ~ .works-grid .works-grid__item:not([data-category='#{$category}']) {
+        display: none;
+      }
+    }
+  }
+
+  // "All": 5 cards on mobile, 8 on tablet, 9 on desktop
+  &[id='filter-all']:checked ~ .works-grid .works-grid__item:nth-child(n + 6) {
+    display: none;
+
+    @include mq(md) {
+      display: block;
+    }
+  }
+
+  &[id='filter-all']:checked ~ .works-grid .works-grid__item:nth-child(n + 9) {
+    @include mq(md) {
+      display: none;
+    }
+
+    @include mq(lg) {
+      display: block;
+    }
+  }
+}

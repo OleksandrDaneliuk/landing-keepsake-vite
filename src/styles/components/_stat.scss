@@ -1,0 +1,27 @@
+@use '../abstracts' as *;
+
+.stat {
+  padding: space('lg') 0;
+  text-align: center;
+
+  &__number {
+    margin-bottom: 6px;
+    @include oswald(38, rem(56), null, 300, false);
+    color: var(--color-text-dark);
+
+    @include mq(md) {
+      font-size: rem(40);
+      line-height: rem(59);
+    }
+
+    @include mq(lg) {
+      font-size: rem(48);
+      line-height: rem(71);
+    }
+  }
+
+  &__label {
+    @include oswald(12, rem(18), 1.5px);
+    color: var(--color-muted);
+  }
+}

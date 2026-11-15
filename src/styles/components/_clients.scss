@@ -1,0 +1,47 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+// Typographic "logo" of each client: font key, weight, optional letter-spacing
+$logo-styles: (
+  'nordly': ('font': 'oswald', 'weight': 700),
+  'halcyon': ('font': 'dancing-script', 'weight': 700),
+  'arco': ('font': 'oswald', 'weight': 300),
+  'pinewood': ('font': 'open-sans', 'weight': 700, 'spacing': 0),
+  'vela': ('font': 'oswald', 'weight': 400, 'spacing': 3px),
+  'ostra': ('font': 'open-sans', 'weight': 300, 'spacing': 0),
+);
+
+.clients {
+  &__logos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include mq(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mq(lg) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  &__logo {
+    @include flex-center;
+    height: rem(72);
+    font-size: rem(22);
+    line-height: rem(33);
+    letter-spacing: 1px;
+    color: var(--color-logo);
+
+    @each $name, $style in $logo-styles {
+      &--#{$name} {
+        font-family: var(--font-#{map.get($style, 'font')});
+        font-weight: map.get($style, 'weight');
+
+        @if map.has-key($style, 'spacing') {
+          letter-spacing: map.get($style, 'spacing');
+        }
+      }
+    }
+  }
+}

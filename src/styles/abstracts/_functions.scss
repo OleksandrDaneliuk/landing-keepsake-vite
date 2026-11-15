@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'tokens';
+
+// rem(18) -> 1.125rem
+@function rem($px, $base: 16) {
+  @return math.div($px, $base) * 1rem;
+}
+
+// space('md') -> 1rem (looks the value up in $spacing)
+@function space($key) {
+  $value: map.get(tokens.$spacing, $key);
+
+  @if $value == null {
+    @error 'Unknown spacing key `#{$key}`. Use one of: #{map.keys(tokens.$spacing)}.';
+  }
+
+  @return math.div($value, 16px) * 1rem;
+}

@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+.section {
+  padding-top: var(--section-padding);
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: space('sm');
+    @include oswald(18, rem(27), 1.5px);
+    color: var(--color-text-dark);
+
+    &::after {
+      content: '';
+      width: rem(16);
+      height: 2px;
+      background-color: var(--color-accent);
+    }
+  }
+
+  &__desc {
+    margin: rem(14) 0;
+  }
+}

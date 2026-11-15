@@ -1,0 +1,29 @@
+@use '../abstracts' as *;
+
+.btn {
+  @include flex-center($inline: true);
+  gap: space('xs');
+  height: rem(40);
+  padding: 0 rem(20);
+  @include oswald(var(--fs-ui), rem(19), 1px);
+
+  &--primary {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+
+    &:hover {
+      background-color: var(--color-accent-hover);
+    }
+  }
+
+  &--secondary {
+    border: 1px solid var(--color-border);
+    background-color: var(--color-white);
+    color: var(--color-text-dark);
+
+    &:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+  }
+}

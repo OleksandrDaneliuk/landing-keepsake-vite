@@ -1,0 +1,30 @@
+// Order matters where a block overrides another one with the same
+// specificity (e.g. .nav__cta overrides .btn, .newsletter__submit too).
+@forward 'btn';
+@forward 'socials';
+@forward 'logo';
+@forward 'burger';
+@forward 'menu-toggle';
+@forward 'favourites';
+@forward 'nav';
+@forward 'hero';
+@forward 'filter-chips';
+@forward 'chip';
+@forward 'filter-radio';
+@forward 'works';
+@forward 'works-grid';
+@forward 'work-card';
+@forward 'cta';
+@forward 'services-grid';
+@forward 'service-card';
+@forward 'stats-grid';
+@forward 'stat';
+@forward 'clients';
+@forward 'testimonial';
+@forward 'slider-dots';
+@forward 'journal-grid';
+@forward 'journal-card';
+@forward 'read-more';
+@forward 'input';
+@forward 'newsletter';
+@forward 'to-top';

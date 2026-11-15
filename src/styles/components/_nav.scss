@@ -1,0 +1,121 @@
+@use '../abstracts' as *;
+
+// Mobile: full-screen dropdown (opened by .menu-toggle:checked ~ .nav)
+.nav {
+  position: fixed;
+  top: var(--header-height);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: space('lg');
+  padding: rem(20) var(--container-padding) space('xl');
+  overflow-y: auto;
+  background-color: var(--color-white);
+
+  @include mq(md) {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    overflow: visible;
+    background-color: transparent;
+  }
+
+  @include mq(lg) {
+    gap: rem(40);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    @include mq(md) {
+      flex-direction: row;
+      gap: space('lg');
+    }
+
+    @include mq(lg) {
+      gap: rem(40);
+    }
+  }
+
+  &__item {
+    border-bottom: 1px solid var(--color-border);
+
+    @include mq(md) {
+      border-bottom: 0;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: space('md') 0;
+    @include oswald(24, 1.25, 2px, 300);
+    color: var(--color-text-dark);
+
+    &:hover,
+    &--active {
+      color: var(--color-accent);
+    }
+
+    @include mq(md) {
+      padding: 0;
+      font-weight: 400;
+      font-size: rem(13);
+      line-height: rem(19);
+      letter-spacing: 1px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: space('sm');
+
+    @include mq(md) {
+      flex-direction: row;
+    }
+  }
+
+  &__cta {
+    width: 100%;
+
+    @include mq(md) {
+      display: none;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: space('xs');
+    padding: rem(20);
+    background-color: var(--color-bg-light);
+
+    @include mq(md) {
+      display: none;
+    }
+  }
+
+  &__info-label {
+    @include oswald(12, null, 1.5px);
+    color: var(--color-muted);
+  }
+
+  &__info-text {
+    color: var(--color-text-dark);
+  }
+
+  &__socials {
+    justify-content: center;
+
+    @include mq(md) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+// Single entry point (linked from layouts/main.pug).
+// Only @use / @forward - no @import.
+@use 'base';
+@use 'layout';
+@use 'components';

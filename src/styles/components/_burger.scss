@@ -1,0 +1,17 @@
+@use '../abstracts' as *;
+
+.burger {
+  @include flex-center;
+  width: rem(40);
+  height: rem(40);
+  color: var(--color-text-dark);
+  cursor: pointer;
+
+  @include mq(md) {
+    display: none;
+  }
+
+  &__icon--close {
+    display: none;
+  }
+}

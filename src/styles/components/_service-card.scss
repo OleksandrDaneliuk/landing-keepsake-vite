@@ -1,0 +1,27 @@
+@use '../abstracts' as *;
+
+.service-card {
+  @include flex-center(column);
+  text-align: center;
+
+  &__icon {
+    @include flex-center;
+    width: rem(72);
+    height: rem(72);
+    margin-bottom: rem(14);
+    border-radius: 50%;
+    background-color: var(--color-bg-light);
+    color: var(--color-accent);
+
+    @include mq(md) {
+      width: rem(96);
+      height: rem(96);
+    }
+  }
+
+  &__title {
+    margin-bottom: rem(14);
+    @include oswald(15, rem(22), 1.5px);
+    color: var(--color-text-dark);
+  }
+}

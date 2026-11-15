@@ -1,0 +1,31 @@
+@use '../abstracts' as *;
+
+.works {
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: rem(18);
+    margin-bottom: rem(22);
+
+    @include mq(md) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: space('lg');
+    }
+  }
+
+  &__more {
+    display: flex;
+    justify-content: center;
+    margin-top: rem(28);
+  }
+
+  &__load-more {
+    width: 100%;
+
+    @include mq(md) {
+      width: auto;
+    }
+  }
+}

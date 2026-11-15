@@ -1,0 +1,30 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+:root {
+  @each $name, $value in $colors {
+    --color-#{$name}: #{$value};
+  }
+
+  @each $name, $value in $fonts {
+    --font-#{$name}: #{$value};
+  }
+
+  @each $name, $value in $spacing {
+    --space-#{$name}: #{$value};
+  }
+
+  @each $name, $value in map.get($layout, 'base') {
+    --#{$name}: #{$value};
+  }
+
+  @each $bp, $values in $layout {
+    @if $bp != 'base' {
+      @include mq($bp) {
+        @each $name, $value in $values {
+          --#{$name}: #{$value};
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+//- src/components/sections/stats.pug
+section.stats.section(aria-label="Studio in numbers")
+  .container
+    ul.stats-grid
+      each stat in stats
+        li.stat
+          p.stat__number #{stat.value}
+          p.stat__label #{stat.label}

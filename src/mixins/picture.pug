@@ -1,0 +1,18 @@
+//- src/mixins/picture.pug
+//- +picture(name, alt, opts)(class="...")
+//- Expects files:  /src/assets/images/<name>-<width>.avif | .webp | .jpg
+//- opts: { widths, sizes, width, height, eager }
+//- &attributes (class, etc.) go onto the <img>.
+mixin picture(name, alt = '', opts = {})
+  - const { widths = [400, 800, 1200], sizes = '100vw', width, height, eager = false } = opts
+  - const base = '/src/assets/images/' + name
+  - const formats = [{ ext: 'avif', type: 'image/avif' }, { ext: 'webp', type: 'image/webp' }]
+  - const srcset = ext => widths.map(w => `${base}-${w}.${ext} ${w}w`).join(', ')
+  - const imgAttrs = { decoding: 'async' }
+  //- Everything below the first screen is lazy; only `eager` images are not
+  unless eager
+    - imgAttrs.loading = 'lazy'
+  picture
+    each format in formats
+      source(type=format.type srcset=srcset(format.ext) sizes=sizes)
+    img(src=`${base}-${widths[widths.length - 1]}.jpg` srcset=srcset('jpg') sizes=sizes alt=alt width=width height=height)&attributes(Object.assign(imgAttrs, attributes))

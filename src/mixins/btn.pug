@@ -1,0 +1,18 @@
+//- src/mixins/btn.pug
+//- +btn(label, href, modifier)(aria-label="...")
+//-   modifier: 'primary' | 'secondary' | ['primary', 'block']  (BEM: btn--primary)
+//-   href given -> <a>, no href -> <button>
+//-   nested content (block) is placed BEFORE the label, e.g. an icon
+mixin btn(label, href, modifier = 'primary')
+  - const mods = [].concat(modifier)
+  - const classes = ['btn'].concat(mods.map(m => `btn--${m}`))
+  if href
+    a(class=classes href=href)&attributes(attributes)
+      if block
+        block
+      | #{label}
+  else
+    button(class=classes type="button")&attributes(attributes)
+      if block
+        block
+      | #{label}

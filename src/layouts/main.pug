@@ -1,0 +1,25 @@
+//- src/layouts/main.pug
+//- Base layout. Mixins and data are pulled in here, so every page and every
+//- component included in a block can use them.
+include ../mixins/index.pug
+include ../data/index.pug
+
+doctype html
+html(lang="en")
+  head
+    block meta
+      meta(charset="UTF-8")
+      meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title
+      block title
+        = site.name
+    block styles
+      link(rel="stylesheet" href="/src/styles/main.scss")
+  body#top
+    include ../includes/svg-sprite.pug
+    include ../components/header.pug
+    main
+      block content
+    include ../components/footer.pug
+    include ../components/back-to-top.pug
+    block scripts

@@ -1,0 +1,14 @@
+//- src/mixins/section-block.pug
+//- +section-block({ id, mod, title, desc })(…attrs)
+//-   Wraps nested content (block) in <section><div class="container">.
+//-   title/desc are optional; when no title is given, pass aria-labelledby yourself.
+mixin section-block(opts = {})
+  - const { id, mod, title, desc } = opts
+  - const titleId = `${id || mod}-title`
+  section.section(class=mod ? `section--${mod}` : false id=id aria-labelledby=title ? titleId : false)&attributes(attributes)
+    .container
+      if title
+        h2.section__title(id=titleId) #{title}
+      if desc
+        p.section__desc #{desc}
+      block

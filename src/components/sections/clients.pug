@@ -1,0 +1,20 @@
+//- src/components/sections/clients.pug
++section-block({ id: 'clients', mod: 'clients', title: 'Clients & kind words', desc: 'Some of the teams that trusted us with their brands.' })
+  ul.clients__logos
+    each client in clients
+      li.clients__logo(class=`clients__logo--${client.id}`) #{client.name}
+
+  - const dots = Array.from({ length: testimonial.slides })
+  figure.testimonial
+    span.testimonial__mark(aria-hidden="true") &ldquo;
+    blockquote.testimonial__quote
+      p.testimonial__text #{testimonial.text}
+    figcaption.testimonial__author
+      .testimonial__person
+        .testimonial__avatar(aria-hidden="true") #{testimonial.initials}
+        .testimonial__details
+          p.testimonial__name #{testimonial.name}
+          p.testimonial__role #{testimonial.role}
+      .slider-dots(aria-hidden="true")
+        each dot, i in dots
+          span.slider-dots__dot(class={ 'slider-dots__dot--active': i === 0 })

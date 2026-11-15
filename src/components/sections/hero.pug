@@ -1,0 +1,8 @@
+//- src/components/sections/hero.pug
+section.hero
+  .container
+    h1.hero__title We're #{site.name}, a digital &amp; branding agency
+    p.hero__desc Specializing in web design, poster, motion video, based in London. We love to turn ideas into beautiful things.
+    .hero__actions
+      +btn('See our works', '#works', 'primary')
+      +btn('Get in touch', '#contact', 'secondary')(aria-label="Get in touch with the studio")

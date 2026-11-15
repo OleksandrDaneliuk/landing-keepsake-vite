@@ -1,0 +1,33 @@
+//- src/pages/index.pug
+extends ../layouts/main.pug
+
+block title
+  = site.title
+
+//- Add SEO / social tags WITHOUT replacing charset + viewport from the layout
+append meta
+  meta(name="description" content=site.description)
+  meta(property="og:type" content="website")
+  meta(property="og:title" content=site.title)
+  meta(property="og:description" content=site.description)
+  meta(property="og:image" content=site.ogImage)
+
+//- Fonts go BEFORE the main stylesheet, so they start loading first
+prepend styles
+  link(rel="preconnect" href="https://fonts.googleapis.com")
+  link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+  link(rel="stylesheet" href=site.fontsUrl)
+
+//- Progressive enhancement flag: CSS can hide JS-only UI when it is missing
+prepend scripts
+  script.
+    document.documentElement.classList.add('js');
+
+block content
+  include ../components/sections/hero.pug
+  include ../components/sections/works.pug
+  include ../components/sections/cta.pug
+  include ../components/sections/services.pug
+  include ../components/sections/stats.pug
+  include ../components/sections/journal.pug
+  include ../components/sections/clients.pug

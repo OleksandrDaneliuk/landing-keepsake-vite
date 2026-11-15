@@ -1,0 +1,17 @@
+//- src/components/sections/journal.pug
++section-block({ id: 'journal', mod: 'journal', title: 'From the journal', desc: 'Notes on process, case studies and things that inspire us.' })
+  .journal-grid
+    each entry, i in journalEntries
+      article.journal-card
+        .journal-card__thumb
+          //- decorative image -> empty alt
+          +picture(entry.image, '', { widths: [150, 300], sizes: '150px', width: 150, height: 150 })
+        .journal-card__content
+          p.journal-card__meta
+            time(datetime=entry.iso) #{entry.date}
+            | &nbsp;/&nbsp;#{entry.category}
+          h3.journal-card__title #{entry.title}
+          p.journal-card__excerpt #{entry.excerpt}
+          a.read-more(href=entry.href || '#')
+            | Read more&nbsp;
+            +icon('chevron')

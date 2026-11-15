@@ -9,11 +9,12 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "autoprefixer": "^10.6.2",
+    "sass": "^1",
     "vite": "^6.4.6",
-    "vituum": "^1.2.0",
-    "sass": "^1"
+    "@vituum/vite-plugin-pug": "^1.1.0",
+    "vituum": "^1.2.0"
   },
   "dependencies": {
-    "@vituum/vite-plugin-pug": "^1.1.0"
   }
-} 
+}

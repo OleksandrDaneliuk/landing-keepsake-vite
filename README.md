@@ -27,7 +27,7 @@ npm run images     # AVIF/WebP/JPEG з images-src/ у src/assets/images/
 landing-keepsake-vite/
 ├── .github/workflows/deploy.yml   # публікація на GitHub Pages
 ├── .husky/                        # pre-commit (lint-staged)
-├── images-src/                    # оригінали зображень
+├── raw-images/                    # оригінали зображень
 ├── scripts/images.mjs             # конвертація зображень (sharp)
 ├── src/
 │   ├── assets/images/             # AVIF, WebP, JPEG у двох ширинах

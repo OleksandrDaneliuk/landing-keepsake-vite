@@ -2,7 +2,7 @@ import vituum from 'vituum';
 import pug from '@vituum/vite-plugin-pug';
 import path from 'path';
 
-export default ({ command }) => ({
+export default {
   base: process.env.BASE_PATH ?? '/',
   plugins: [
     vituum({
@@ -24,4 +24,4 @@ export default ({ command }) => ({
   build: {
     assetsInlineLimit: 0,
   },
-});
+};

@@ -2,8 +2,8 @@ import vituum from 'vituum';
 import pug from '@vituum/vite-plugin-pug';
 import path from 'path';
 
-export default {
-  base: '/landing-keepsake-vite/',
+export default ({ command }) => ({
+  base: process.env.BASE_PATH ?? '/',
   plugins: [
     vituum({
       imports: {
@@ -24,4 +24,4 @@ export default {
   build: {
     assetsInlineLimit: 0,
   },
-};
+});
